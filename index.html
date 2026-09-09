@@ -1,0 +1,239 @@
+<!--
+  MY FAVORITE PLACE CAFETERÍA — Cafetería / comida al paso, El Bosque
+  Ernesto Riquelme 88, El Bosque (esquina con Gran Avenida José Miguel Carrera 9707),
+  en el límite con La Cisterna, Región Metropolitana.
+
+  Datos verificados EN VIVO el 09-09-2026:
+  - Ficha real de Google Maps: "My Favorite Place Cafeteria" · CID real:
+    0x9662db84d5138eed:0xd0caec617f3b98b9 (extraído desde Compartir → Incorporar un mapa,
+    NO es un iframe genérico). OJO: existe una ficha DISTINTA y homónima "My Favorite Place
+    Cafeteria one" (4.1★/12 reseñas, rubro Restaurante) a pocas cuadras — no confundir, esta
+    demo usa solo la ficha de 4.0★/67 reseñas que pidió el usuario.
+  - Horario real completo (tabla de horario de Google Maps, no solo el resumen): Lunes a
+    Viernes 9:30–19:00, Sábado y Domingo CERRADO.
+  - Teléfono/WhatsApp real y CONFIRMADO activo: +56 9 9236 2456 — confirmado porque el propio
+    botón "Pedir en línea" de Google Maps redirige a un link real de WhatsApp
+    (api.whatsapp.com/send?phone=56992362456), no es una suposición.
+  - Carta 100% real con precios reales: catálogo oficial de pedidos del negocio en
+    https://my-favorite-place.catalog.kyte.site (mismo teléfono +56 9 9236 2456 y contacto
+    real araneda_dan@hotmail.com) — 65 productos activos con precio, extraídos directo del
+    JSON de la página (no inventados). El sitio del catálogo marca los precios como "US$" por
+    un error de configuración de la plataforma Kyte — son precios en pesos chilenos (CLP),
+    corregido acá.
+  - Uber Eats: existe una ficha real a nombre de "My Favorite Place Cafeteria" en la misma
+    dirección (Gran Avenida José Miguel Carrera 9707, El Bosque), pero aparece "Cerrado en la
+    app de Uber Eats" al verificarla y no se pudo confirmar una URL de tienda estable — no se
+    agregó botón para no arriesgar un link roto. Mencionar al usuario.
+  - Sin Instagram ni TikTok confirmado: el nombre es demasiado genérico para identificar una
+    cuenta real con certeza (la búsqueda se llena de posts de "my favorite place" sin relación).
+  - Reseñas: la vista de Google Maps disponible en este entorno solo carga 3 reseñas sin poder
+    iniciar sesión para ver las 64 restantes ni reordenar por "Calificación más alta" (misma
+    limitación técnica ya documentada en Café Tsiluba/Café Matte). De las 3 disponibles, 2 son
+    negativas (quejas de comida) y solo 1 es positiva con nombre real — se avisa al usuario que
+    idealmente convendría 2-3 positivas pero solo se pudo conseguir 1 con certeza real.
+  - Revisión de seguridad de contenido: se revisaron las reseñas disponibles con cuidado — sin
+    ninguna señal de "café con piernas" ni similar. Es una fuente de soda / cocinería de barrio
+    (chorrillanas, churrascos, colaciones caseras), reseñas hablan de comida y atención.
+  - Fotos/logo: PENDIENTES — el usuario aún no ha dejado fotos reales en fotos/. Se usan fotos
+    de stock (Unsplash) marcadas como temporales en script.js, a reemplazar cuando lleguen las
+    reales. Google Maps solo expone 1 foto de portada real sin iniciar sesión (fachada de
+    noche) — no se pudo descargar con garantía de estabilidad del link en esta sesión.
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Favorite Place Cafetería — El Bosque</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-mark">My Favorite Place</div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#" class="nav-brand" data-tab="inicio">
+      <img id="logoNav" class="logo-real" alt="Logo My Favorite Place Cafetería">
+      <span class="brand-word">My Favorite Place</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <button class="nav-link active" data-tab="inicio">Inicio</button>
+      <button class="nav-link" data-tab="nosotros">Nosotros</button>
+      <button class="nav-link" data-tab="carta">Carta</button>
+      <button class="nav-link" data-tab="resenas">Reseñas</button>
+      <button class="nav-link" data-tab="visitanos">Visítanos</button>
+    </nav>
+    <a href="https://wa.me/56992362456" target="_blank" rel="noopener" class="nav-cta">Pedir por WhatsApp</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== INICIO ===================== -->
+  <section class="tab-panel active" id="inicio" data-tab-panel="inicio">
+    <div class="hero-split">
+      <div class="hero-text reveal">
+        <p class="hero-eyebrow">Cafetería · Comida al paso · El Bosque</p>
+        <h1 class="hero-title">Comida casera,<br>rápida y de barrio</h1>
+        <p class="hero-sub">Chorrillanas, churrascos, completos y colaciones "sabor de la abuela" en Ernesto Riquelme 88, a pasos del Metro El Bosque. Pedidos directo por WhatsApp.</p>
+        <div class="hero-pills">
+          <div class="pill"><span class="dot" id="statusDot"></span><span id="statusText">Cargando horario...</span></div>
+          <div class="pill">★ 4.0 · 67 opiniones</div>
+        </div>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-tab="carta">Ver la carta</button>
+          <button class="btn btn-outline" data-tab="visitanos">Cómo llegar</button>
+        </div>
+      </div>
+      <div class="hero-photo-wrap reveal">
+        <img id="heroPhoto" class="hero-photo" alt="Comida de My Favorite Place Cafetería">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NOSOTROS ===================== -->
+  <section class="tab-panel" id="nosotros" data-tab-panel="nosotros">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">Nosotros</p>
+      <h2 class="section-title reveal">Una fuente de soda de barrio en El Bosque</h2>
+      <p class="section-lead reveal">My Favorite Place es una cocinería y cafetería de comida al paso en la esquina de Ernesto Riquelme con Gran Avenida José Miguel Carrera. Chorrillanas, churrascos, completos, vienesas y colaciones caseras — pensada para comer rico y rápido, sea para almorzar en el local o pedir por WhatsApp para retirar.</p>
+
+      <div class="pilares-grid">
+        <div class="pilar-card reveal">
+          <span class="pilar-num">01</span>
+          <h3>Colaciones caseras</h3>
+          <p>Cazuelas, porotos, tallarines, pastel de choclo — colaciones del día con ensalada, pan y pebre, "sabor de la abuela", como las llaman ellos mismos en su carta.</p>
+        </div>
+        <div class="pilar-card reveal">
+          <span class="pilar-num">02</span>
+          <h3>Chorrillanas y churrascos</h3>
+          <p>Chorrillana para 2 o familiar para 4, churrascos, hamburguesas y vienesas en todas sus versiones — la comida al paso de siempre, bien de barrio.</p>
+        </div>
+        <div class="pilar-card reveal">
+          <span class="pilar-num">03</span>
+          <h3>Pedidos por WhatsApp</h3>
+          <p>Sin apps de por medio: se pide directo por WhatsApp al +56 9 9236 2456 y se retira en el local, en Ernesto Riquelme 88.</p>
+        </div>
+      </div>
+
+      <div class="nosotros-divider reveal"></div>
+
+      <div class="nosotros-gallery">
+        <img id="galUno" class="gal-photo reveal" alt="My Favorite Place — chorrillana">
+        <img id="galDos" class="gal-photo reveal" alt="My Favorite Place — churrasco">
+        <img id="galTres" class="gal-photo reveal" alt="My Favorite Place — colación casera">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CARTA ===================== -->
+  <section class="tab-panel" id="carta" data-tab-panel="carta">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">Carta</p>
+      <h2 class="section-title reveal">La carta real, con precios reales</h2>
+      <p class="menu-note reveal">Estos son los productos y precios reales de My Favorite Place, tomados directo de su catálogo oficial de pedidos <a href="https://my-favorite-place.catalog.kyte.site" target="_blank" rel="noopener">(ver catálogo online)</a>. Los precios están en pesos chilenos (CLP) — el catálogo original los muestra con el símbolo "US$" por un error de configuración de la plataforma, no porque cobren en dólares.</p>
+
+      <div id="menuTabs" class="menu-tabs"></div>
+      <div id="menuPanels" class="menu-panels"></div>
+    </div>
+  </section>
+
+  <!-- ===================== RESEÑAS ===================== -->
+  <section class="tab-panel" id="resenas" data-tab-panel="resenas">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">Reseñas</p>
+      <h2 class="section-title reveal">Lo que dicen en Google</h2>
+      <p class="section-lead reveal">4.0★ sobre 67 opiniones reales en Google Maps.</p>
+
+      <div class="resenas-grid">
+        <article class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Es un lugar muy acogedor. Hay asientos adentro y afuera del local. La cocinera es muy simpática y agradable. En esta ocasión pedimos hamburguesas y estaban exquisitas. Muy recomendado."</p>
+          <p class="review-author">— Javiera Gómez Basualto, Local Guide (16 reseñas)</p>
+        </article>
+      </div>
+      <p class="menu-note reveal" style="margin-top:-14px;">Nota honesta: la vista de Google Maps disponible en esta sesión solo permite cargar 3 reseñas sin iniciar sesión, y de esas 3 solo una es positiva con nombre — no se pudieron revisar las 64 restantes para elegir 2 o 3 buenas. Puedes leer todas las opiniones directo en Google con el botón de abajo.</p>
+
+      <a class="btn btn-outline reveal" href="https://search.google.com/local/writereview?placeid=0x9662db84d5138eed:0xd0caec617f3b98b9" target="_blank" rel="noopener">Escribe tu reseña en Google</a>
+    </div>
+  </section>
+
+  <!-- ===================== VISÍTANOS ===================== -->
+  <section class="tab-panel" id="visitanos" data-tab-panel="visitanos">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">Visítanos</p>
+      <h2 class="section-title reveal">Te esperamos en Ernesto Riquelme</h2>
+
+      <div class="visit-grid">
+        <div class="visit-info reveal">
+          <div class="visit-block">
+            <h3>Dirección</h3>
+            <p>Ernesto Riquelme 88, El Bosque, Región Metropolitana (esquina con Gran Avenida José Miguel Carrera)</p>
+          </div>
+          <div class="visit-block">
+            <h3>Horario</h3>
+            <p id="visit-status">Cargando...</p>
+            <ul class="hours-list">
+              <li><span>Lunes a viernes</span><span>9:30 – 19:00</span></li>
+              <li><span>Sábado</span><span>Cerrado</span></li>
+              <li><span>Domingo</span><span>Cerrado</span></li>
+            </ul>
+          </div>
+          <div class="visit-block">
+            <h3>Pedidos</h3>
+            <p>Consumo en el local, para llevar y pedidos directo por WhatsApp — sin apps de delivery de por medio.</p>
+          </div>
+
+          <div class="contact-grid">
+            <a class="contact-box" href="https://wa.me/56992362456" target="_blank" rel="noopener">
+              <div><p class="cb-label">WhatsApp</p><p class="cb-value">+56 9 9236 2456</p></div>
+            </a>
+            <a class="contact-box" href="https://my-favorite-place.catalog.kyte.site" target="_blank" rel="noopener">
+              <div><p class="cb-label">Catálogo</p><p class="cb-value">Ver online</p></div>
+            </a>
+            <a class="contact-box" href="https://www.google.com/maps/dir/?api=1&destination=My+Favorite+Place+Cafeteria&destination_place_id=0x9662db84d5138eed:0xd0caec617f3b98b9" target="_blank" rel="noopener">
+              <div><p class="cb-label">Cómo llegar</p><p class="cb-value">Google Maps</p></div>
+            </a>
+            <a class="contact-box" href="https://waze.com/ul?ll=-33.545996773351774,-70.66977342430513&navigate=yes" target="_blank" rel="noopener">
+              <div><p class="cb-label">Ir con</p><p class="cb-value">Waze</p></div>
+            </a>
+          </div>
+        </div>
+
+        <div class="visit-map reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.284000144302!2d-70.66977342430513!3d-33.545996773351774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662db84d5138eed%3A0xd0caec617f3b98b9!2sMy%20Favorite%20Place%20Cafeteria!5e0!3m2!1ses-419!2scl!4v1788925176094!5m2!1ses-419!2scl"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <img id="logoFooter" class="logo-real" alt="Logo My Favorite Place Cafetería">
+  <p class="footer-word">My Favorite Place</p>
+  <p class="footer-sub">Ernesto Riquelme 88, El Bosque</p>
+  <p class="footer-demo">Demo de sitio web construida por Matías Medina — desarrollo web para negocios locales.</p>
+</footer>
+
+<div class="float-widgets">
+  <a id="floatWhatsapp" class="float-btn" href="https://wa.me/56992362456" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.19 3.03 14.7 2 12.04 2zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.84-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.99-1.22-.73-.66-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01a.9.9 0 0 0-.66.31c-.23.25-.87.85-.87 2.08 0 1.23.89 2.42 1.02 2.58.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+  </a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
