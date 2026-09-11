@@ -34,10 +34,18 @@
   - Revisión de seguridad de contenido: se revisaron las reseñas disponibles con cuidado — sin
     ninguna señal de "café con piernas" ni similar. Es una fuente de soda / cocinería de barrio
     (chorrillanas, churrascos, colaciones caseras), reseñas hablan de comida y atención.
-  - Fotos/logo: PENDIENTES — el usuario aún no ha dejado fotos reales en fotos/. Se usan fotos
-    de stock (Unsplash) marcadas como temporales en script.js, a reemplazar cuando lleguen las
-    reales. Google Maps solo expone 1 foto de portada real sin iniciar sesión (fachada de
-    noche) — no se pudo descargar con garantía de estabilidad del link en esta sesión.
+  ✅ FOTOS REALES (11-09-2026) — ya no queda nada de stock:
+  - 5 fotos bajadas de su propia ficha de Google Maps (fachada de noche, fachada de día,
+    churrasco chacarero con café, churrasco, chacarero). Se revisaron una por una: se
+    descartó una captura de TikTok con un cliente identificable de frente.
+  - Con eso la tarjeta al compartir el link por WhatsApp ya muestra la foto del local
+    (antes iba sin imagen, era una de las 7 del portafolio en esa situación).
+  - Datos nuevos que aparecen en las fotos: el letrero dice "SANDWICHERIA" además de
+    "CAFETERIA" y muestra un teléfono FIJO (2 2359 7691) distinto del móvil con WhatsApp.
+    El cartel de día ofrece "COLACIONES $4.000, todos los días menú diferente"; el catálogo
+    oficial cobra $5.000, así que la foto es probablemente más antigua — se mantiene el
+    precio del catálogo por ser el canal vivo. CONFIRMAR ambos con el local.
+  - Sin logo real (el negocio no tiene isotipo, solo el letrero) — wordmark tipográfico.
 -->
 <!DOCTYPE html>
 <html lang="es">
@@ -67,7 +75,9 @@
 <meta property="og:title" content="My Favorite Place Cafetería — El Bosque">
 <meta property="og:description" content="My Favorite Place Cafetería. Comida casera, rápida y de barrio. 4.0★ con 67 opiniones en Google.">
 <meta property="og:url" content="https://mmedinacode.github.io/My-Favorite-Place-Web/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://mmedinacode.github.io/My-Favorite-Place-Web/fotos/fachada-noche.jpg">
+<meta property="og:image:alt" content="My Favorite Place Cafetería">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -82,7 +92,6 @@
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="#" class="nav-brand" data-tab="inicio">
-      <img id="logoNav" class="logo-real" alt="Logo My Favorite Place Cafetería">
       <span class="brand-word">My Favorite Place</span>
     </a>
     <nav class="nav-links" id="navLinks">
@@ -118,7 +127,7 @@
         </div>
       </div>
       <div class="hero-photo-wrap reveal">
-        <img id="heroPhoto" class="hero-photo" alt="Comida de My Favorite Place Cafetería">
+        <img id="heroPhoto" class="hero-photo" alt="Fachada iluminada de My Favorite Place en Ernesto Riquelme 88, El Bosque">
       </div>
     </div>
   </section>
@@ -151,9 +160,9 @@
       <div class="nosotros-divider reveal"></div>
 
       <div class="nosotros-gallery">
-        <img id="galUno" class="gal-photo reveal" alt="My Favorite Place — chorrillana">
-        <img id="galDos" class="gal-photo reveal" alt="My Favorite Place — churrasco">
-        <img id="galTres" class="gal-photo reveal" alt="My Favorite Place — colación casera">
+        <img id="galUno" class="gal-photo reveal" alt="Churrasco chacarero con un café en My Favorite Place">
+        <img id="galDos" class="gal-photo reveal" alt="La fachada de My Favorite Place de día, con el cartel de colaciones">
+        <img id="galTres" class="gal-photo reveal" alt="Churrasco con carne y ají verde servido en el local">
       </div>
     </div>
   </section>
@@ -245,7 +254,6 @@
 </main>
 
 <footer class="site-footer">
-  <img id="logoFooter" class="logo-real" alt="Logo My Favorite Place Cafetería">
   <p class="footer-word">My Favorite Place</p>
   <p class="footer-sub">Ernesto Riquelme 88, El Bosque</p>
   <p class="footer-demo">Demo de sitio web construida por Matías Medina — desarrollo web para negocios locales.</p>

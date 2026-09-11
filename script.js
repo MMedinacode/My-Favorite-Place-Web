@@ -1,20 +1,27 @@
 /* ============================================================
-   FOTOS Y LOGO — PENDIENTES (placeholder temporal)
+   FOTOS REALES DEL LOCAL (11-09-2026) — ya no hay stock acá
    ============================================================
-   El usuario aún no ha dejado fotos reales en fotos/. Mientras tanto
-   se usan fotos de stock de Unsplash (nunca fotos reales de otra
-   cafetería del portafolio). Reemplazar por las reales apenas lleguen.
-   Nota: Google Maps solo expone 1 foto real de portada (fachada de
-   noche) sin iniciar sesión — no se pudo descargar con garantía de que
-   el link se mantenga estable, así que no se usó acá directamente. */
-const LOGO_SRC = 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=200&h=200&fit=crop&q=80';
-const HERO_SRC = 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=1200&q=80';
-const GAL_UNO_SRC = 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&q=80';
-const GAL_DOS_SRC = 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80';
-const GAL_TRES_SRC = 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&q=80';
+   Las 5 fotos salen de la propia ficha de Google Maps del negocio,
+   bajadas con el extractor que corta en "También se buscó" para no
+   agarrar fotos de otros locales. Se revisaron una por una antes de
+   usarlas: se descartó una (captura de TikTok con un cliente
+   identificable de frente).
 
-document.getElementById('logoNav').src = LOGO_SRC;
-document.getElementById('logoFooter').src = LOGO_SRC;
+   Dato real que aparece en la foto de la fachada y que NO estaba en
+   ningún otro canal: el letrero dice "SANDWICHERIA" además de
+   "CAFETERIA", y muestra un teléfono fijo (2 2359 7691) distinto del
+   móvil con WhatsApp confirmado. El cartel de la fachada de día anuncia
+   "COLACIONES $4.000, todos los días menú diferente" — el catálogo
+   oficial de pedidos cobra $5.000, así que la foto probablemente es más
+   antigua; se mantiene el precio del catálogo por ser el canal vivo.
+
+   Sigue sin logo real: el negocio no tiene isotipo propio, solo el
+   letrero. Se usa un wordmark tipográfico, nunca un logo inventado. */
+const HERO_SRC = 'fotos/fachada-noche.jpg';
+const GAL_UNO_SRC = 'fotos/chacarero-cafe.jpg';
+const GAL_DOS_SRC = 'fotos/fachada-dia.jpg';
+const GAL_TRES_SRC = 'fotos/churrasco.jpg';
+
 document.getElementById('heroPhoto').src = HERO_SRC;
 document.getElementById('galUno').src = GAL_UNO_SRC;
 document.getElementById('galDos').src = GAL_DOS_SRC;
